@@ -8,10 +8,8 @@ import models
 class FileStorage ():
     """FileStorage Class"""
 
-    def __init__(self):
-        """attributes"""
-        self.__file_path = "file.json"
-        self.__objects = {}
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
         """returns __objects"""
@@ -39,4 +37,4 @@ class FileStorage ():
                 de_json = json.load(f)
                 for key, value in de_json.items():
                     FileStorage.__objects[key] = eval(
-                            value['__class__'])(**value)
+                        value['__class__'])(**value)
