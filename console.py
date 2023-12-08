@@ -6,7 +6,6 @@ from models import storage
 from models.base_model import BaseModel
 
 
-
 class HBNBCommand(cmd.Cmd):
     """ cmd """
     prompt = "(hbnb) "
@@ -38,7 +37,8 @@ class HBNBCommand(cmd.Cmd):
             print(new_inst.id)
 
     def do_show(self, args):
-        """Prints the string representation of an instance based on the class name and id"""
+        """Prints the string representation of an
+         instance based on the class name and id"""
         pass
 
 
