@@ -10,7 +10,7 @@ import json
 class HBNBCommand(cmd.Cmd):
     """ cmd """
     prompt = "(hbnb) "
-    all_classes = ["BaseModel"]
+    all_classes = ["BaseModel", "User"]
 
     def do_quit(self, arg):
         """" Quit hbnb """
@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in self.all_classes:
             print("** class doesn't exist **")
         else:
-            new_inst = BaseModel()
+            new_inst = eval(f"{args[0]}()")
             new_inst.save()
             print(new_inst.id)
 
