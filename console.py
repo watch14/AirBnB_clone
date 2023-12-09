@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif ars[0] not in self.all_classes:
             print("** class doesn't exist **")
-        elif not ars[1]:
+        elif len(ars) == 1:
             print("** instance id missing **")
         else:
             key = f"{ars[0]}.{ars[1]}"
