@@ -4,7 +4,7 @@ import cmd
 from shlex import split
 from models import storage
 from models.base_model import BaseModel
-import json
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -16,10 +16,7 @@ class HBNBCommand(cmd.Cmd):
         """" Quit hbnb """
         return True
 
-    def do_EOF(self, arg):
-        """EOF signal to exit the program."""
-        print("")
-        return True
+    do_EOF = do_quit
 
     def do_help(self, arg):
         """" help hbnb """
@@ -42,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Prints the string representation of
-         an instance based on the class name and id"""
+        an instance based on the class name and id"""
         ars = split(arg)
         if len(ars) == 0:
             print("** class name missing **")
@@ -58,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
                 print('** no instance found **')
 
     def do_destroy(self, arg):
-        """delete / destroy instance"""
+        """delete"""
         ars = split(arg)
         if len(ars) == 0:
             print("** class name missing **")
