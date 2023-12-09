@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
         elif ars[0] not in self.all_classes:
             print("** class doesn't exist **")
         else:
-            print([str(a) for b, a in storage.all().items() if arg in b])
+            print([str(v) for k, v in storage.all().items() if ars[0] in k])
 
 
 if __name__ == '__main__':
