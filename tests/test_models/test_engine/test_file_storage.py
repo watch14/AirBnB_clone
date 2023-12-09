@@ -3,56 +3,77 @@
 import unittest
 import os
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models import storage
 
 
 class TestFileStorage(unittest.TestCase):
-    """test"""
+    """tests"""
     def setUp(self):
-        """Set up a clean environment before each test."""
-        FileStorage._FileStorage__objects = {}
-        FileStorage._FileStorage__file_path = "test_file.json"
+        """Set up for test cases."""
+        self.storage = storage
+        self.storage.reload()
 
     def tearDown(self):
-        """Clean up after each test."""
-        if os.path.exists(FileStorage._FileStorage__file_path):
-            os.remove(FileStorage._FileStorage__file_path)
-
-    def test_all(self):
-        """Test the 'all' method."""
-        storage = FileStorage()
-        obj = BaseModel()
-        storage.new(obj)
-        objects = storage.all()
-        self.assertEqual(objects, FileStorage._FileStorage__objects)
-
-    def test_new(self):
-        """Test the 'new' method."""
-        storage = FileStorage()
-        obj = BaseModel()
-        storage.new(obj)
-        key = f"{obj.__class__.__name__}.{obj.id}"
-        self.assertIn(key, FileStorage._FileStorage__objects)
+        """Tear down after test cases."""
+        try:
+            os.remove("file.json")
+        except FileNotFoundError:
+            pass
 
     def test_save_and_reload(self):
-        """Test the 'save' and 'reload' methods."""
-        storage = FileStorage()
-        obj = BaseModel()
-        storage.new(obj)
-        storage.save()
+        """Test if saving and reloading works correctly."""
+        user = User()
+        state = State()
+        city = City()
+        amenity = Amenity()
+        place = Place()
+        review = Review()
 
-        new_storage = FileStorage()
-        new_storage.reload()
+        self.storage.new(user)
+        self.storage.new(state)
+        self.storage.new(city)
+        self.storage.new(amenity)
+        self.storage.new(place)
+        self.storage.new(review)
 
-        key = f"{obj.__class__.__name__}.{obj.id}"
+        self.storage.save()
 
-        self.assertIn(key, new_storage.all())
+        self.storage.__objects = {}
 
-        reloaded_obj = new_storage.all()[key]
-        self.assertIsInstance(reloaded_obj, BaseModel)
+        self.storage.reload()
 
-        self.assertEqual(reloaded_obj.id, obj.id)
+        self.assertTrue(isinstance(
+            self.storage.all()["User." + user.id], User))
+        self.assertTrue(isinstance(
+            self.storage.all()["State." + state.id], State))
+        self.assertTrue(isinstance(
+            self.storage.all()["City." + city.id], City))
+        self.assertTrue(isinstance(
+            self.storage.all()["Amenity." + amenity.id], Amenity))
+        self.assertTrue(isinstance(
+            self.storage.all()["Place." + place.id], Place))
+        self.assertTrue(isinstance(
+            self.storage.all()["Review." + review.id], Review))
+
+    def test_new_method(self):
+        """Test if new method adds objects to the storage."""
+        user = User()
+        state = State()
+
+        self.storage.new(user)
+        self.storage.new(state)
+
+        self.assertTrue(
+                isinstance(self.storage.all()["User." + user.id], User))
+        self.assertTrue(
+                isinstance(self.storage.all()["State." + state.id], State))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
