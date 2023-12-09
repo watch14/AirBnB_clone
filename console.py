@@ -13,13 +13,13 @@ class HBNBCommand(cmd.Cmd):
     all_classes = ["BaseModel", "User"]
 
     def do_quit(self, arg):
-        """" Quit hbnb """
+        """ Quit hbnb """
         return True
 
     do_EOF = do_quit
 
     def do_help(self, arg):
-        """" help hbnb """
+        """ help hbnb """
         cmd.Cmd.do_help(self, arg)
 
     def emptyline(self):
