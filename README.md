@@ -23,7 +23,7 @@ Destroy an object.
 To start the command interpreter, run the following command:
 
 ```bash
-  ./console.py
+./console.py
 ```
 
 This will launch the interactive mode, and you will see the prompt (hbnb).
@@ -35,27 +35,27 @@ Once the command interpreter is running, you can use the following commands:
 help: Display a list of documented commands.
 quit: Exit the command interpreter.
 ```bash
-  $ ./console.py
-  (hbnb) help
-  Documented commands (type help <topic>):
-  ========================================
-  EOF   help   create   quit ...
+$ ./console.py
+(hbnb) help
+Documented commands (type help <topic>):
+	========================================
+		EOF   help   create   quit ...
 
-  (hbnb) quit
-  $
-```
-create: Creates a new instance of BaseModel.
+		(hbnb) quit
+		$
+		```
+		create: Creates a new instance of BaseModel.
 
-```bash
-  ./console.py
-  (hbnb) create BaseModel
-  af7ec22e-af27-42e1-a467-dd72ec2eb8b4
-```
-...
+		```bash
+		./console.py
+		(hbnb) create BaseModel
+		af7ec22e-af27-42e1-a467-dd72ec2eb8b4
+		```
+		...
 # Authors ✒️
-Maamoun Chebbi <[Github@watch14](https://github.com/watch14)>
+		Maamoun Chebbi <[Github@watch14](https://github.com/watch14)>
 
-Seif Ben Othmen
+		Seif Ben Othmen
 
 
-Feel free to reach out if you have any questions or need further clarification on the project requirements. Thank you!
+		Feel free to reach out if you have any questions or need further clarification on the project requirements. Thank you!
