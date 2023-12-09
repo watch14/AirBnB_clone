@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""test file storage"""
 import unittest
 import os
 from models.base_model import BaseModel
@@ -6,7 +7,7 @@ from models.engine.file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
-    """test file storage class"""
+    """test"""
     def setUp(self):
         """Set up a clean environment before each test."""
         FileStorage._FileStorage__objects = {}
