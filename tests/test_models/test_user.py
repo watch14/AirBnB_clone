@@ -6,13 +6,17 @@ from models.base_model import BaseModel
 
 
 class TestUser(unittest.TestCase):
+    """user test"""
     def setUp(self):
+        """user test"""
         pass
 
     def tearDown(self):
+        """user test"""
         pass
 
     def test_user_attributes(self):
+        """user test"""
         user = User()
         user.email = "test@example.com"
         user.password = "password123"
@@ -25,6 +29,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user.last_name, "Doe")
 
     def test_user_instance_of_base_model(self):
+        """user test"""
         user = User()
         self.assertIsInstance(user, BaseModel)
 
