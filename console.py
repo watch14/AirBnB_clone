@@ -4,6 +4,7 @@ import cmd
 from shlex import split
 from models import storage
 from models.base_model import BaseModel
+import json
 
 
 class HBNBCommand(cmd.Cmd):
