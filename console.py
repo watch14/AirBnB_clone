@@ -140,10 +140,7 @@ class HBNBCommand(cmd.Cmd):
         com = temp[0]
         typ_dic = {
                 'all': self.do_all,
-                'count': self.do_count,
-                'show': self.do_show,
-                'destroy': self.do_destroy,
-                'update': self.do_update
+                'count': self.do_count
                 }
         if com in typ_dic.keys():
             return typ_dic[com](f"{cls_name}")
