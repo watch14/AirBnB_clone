@@ -122,16 +122,6 @@ class HBNBCommand(cmd.Cmd):
                 setattr(instance, new_key, new_val)
                 instance.save()
 
-        def do_count(self, arg):
-            """count"""
-        ars = parse(arg)
-
-        c = 0
-        for key in storage.all().values():
-            if ars[0] == key.__class__.__name__:
-                c += 1
-        print(c)
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
