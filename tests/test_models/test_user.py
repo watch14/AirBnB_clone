@@ -9,7 +9,7 @@ class TestUser(unittest.TestCase):
     """user test"""
     def setUp(self):
         """user test"""
-        pass
+        self.user = User()
 
     def tearDown(self):
         """user test"""
