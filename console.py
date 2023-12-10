@@ -122,6 +122,36 @@ class HBNBCommand(cmd.Cmd):
                 setattr(instance, new_key, new_val)
                 instance.save()
 
+    def do_count(self, arg):
+        """count class nb"""
+        ars = split(arg)
+        class_nb = 0
+        for k in storage.all().values():
+            if ars[0] == k.__class__.__name__:
+                class_nb += 1
+        print(class_nb)
+
+    def default(self, arg):
+        """default : not recognisable commands"""
+
+        ars = arg.split(".")
+        cls_name = ars[0]
+        temp = ars[1].split("(")
+        com = temp[0]
+        typ_dic = {
+                'all': self.do_all,
+                'count': self.do_count,
+                'show': self.do_show,
+                'destroy': self.do_destroy,
+                'update': self.do_update
+                }
+        if com in typ_dic.keys():
+            return typ_dic[com](f"{cls_name}")
+        else:
+            if not cls_name:
+                print("** class name missing **")
+                return
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
