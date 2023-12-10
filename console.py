@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Cmd hbnbClass """
+""" Cmd hbnb Class """
 import cmd
 from shlex import split
 from models import storage
