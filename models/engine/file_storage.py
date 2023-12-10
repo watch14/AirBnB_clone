@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""FileStorage: serializes and deserializes"""
+""" class FileStorage"""
 import json
 import uuid
 import os
@@ -13,36 +13,31 @@ from models.place import Place
 from models.review import Review
 
 
-class FileStorage ():
-    """FileStorage Class"""
-
+class FileStorage:
+    """ construct """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """returns __objects"""
+        """ return dictionary objects """
         return FileStorage.__objects
 
     def new(self, obj):
-        """set obj"""
-        k_o = f"{obj.__class__.__name__}.{obj.id}"
-        FileStorage.__objects[k_o] = obj
+        """ sets in dictionary"""
+        FileStorage.__objects[obj.__class__.__name__ + "." + str(obj.id)] = obj
 
     def save(self):
-        """Sereialize JSON"""
-        obj_dic = {}
-        for key in FileStorage.__objects.keys():
-            obj = FileStorage.__objects[key]
-            obj_dic[key] = obj.to_dict()
-
-        with open(FileStorage.__file_path, "w") as f:
-            json.dump(obj_dic, f)
+        """ serialize"""
+        with open(FileStorage.__file_path, 'w', encoding='utf-8') as fname:
+            new_dict = {key: obj.to_dict() for key, obj in
+                        FileStorage.__objects.items()}
+            json.dump(new_dict, fname)
 
     def reload(self):
-        """Deserialize JSON"""
+        """ Reload """
         if (os.path.isfile(FileStorage.__file_path)):
-            with open(FileStorage.__file_path, "r") as f:
-                de_json = json.load(f)
-                for key, value in de_json.items():
+            with open(FileStorage.__file_path, 'r', encoding="utf-8") as fname:
+                l_json = json.load(fname)
+                for key, val in l_json.items():
                     FileStorage.__objects[key] = eval(
-                            value['__class__'])(**value)
+                        val['__class__'])(**val)
