@@ -74,6 +74,5 @@
 }
 
 .user, .description{
-    justify-content: none;
-    padding: 10px 10% 20px;
+    padding: 10px 5% 8px;
 }

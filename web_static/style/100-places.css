@@ -9,7 +9,7 @@
     font-size: 30px;
 
 }
-.places h2{
+.places .box_title{
     text-align: center;
     font-size: 30px;
 
@@ -54,7 +54,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 30px 10% 10px;
+    margin: 30px 10% 0px;
 }
 .max_guest , .number_rooms , .number_bathrooms{
     width: 100px;
@@ -62,6 +62,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10px 0;
 }
 .information img{
     justify-content: center;
@@ -74,6 +75,28 @@
 }
 
 .user, .description{
-    justify-content: none;
-    padding: 10px 10% 20px;
+    padding: 10px 5% 8px;
+}
+ul{
+    list-style: none;
+}
+.amenities{
+    display: flex;
+    flex-direction: column;
+
+}
+.ameni_title{
+    margin: 40px 10% 10px;
+    font-size: 16px;
+    border-bottom: #DDDDDD 1px solid;
+}
+.ul_ameni li{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.ul_ameni img {
+    width: 30px;
+    height: 30px;
 }
