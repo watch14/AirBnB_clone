@@ -74,7 +74,7 @@
     border-radius: 4px;
     position: absolute;
     top: 100%;
-    width: 83%;
+    width: 100%;
     padding-bottom: 10%;
     display: none;
 }
@@ -89,7 +89,7 @@
     border-radius: 4px;
     position: absolute;
     top: 100%;
-    width: 83%;
+    width: 100%;
     padding-bottom: 10%;
     display: none;
 }
