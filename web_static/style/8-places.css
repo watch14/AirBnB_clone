@@ -12,8 +12,7 @@
 .places h2{
     text-align: center;
     font-size: 30px;
-    padding: 20px;
-    margin: 20px;
+
 }
 
 .places .box{
@@ -48,6 +47,7 @@
 }
 
 .information {
+    margin-top: 35px;
     height: 80px;
     border-top: solid #DDDDDD 1px;
     border-bottom: solid #DDDDDD 1px;
@@ -63,4 +63,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.information img{
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
