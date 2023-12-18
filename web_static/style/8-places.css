@@ -15,16 +15,14 @@
 
 }
 
-.places .box{
+ .box{
     width: 390px;
     margin: 20px;
     border: solid #FF5A5F 1px;
     border-radius: 4px;
     position: relative;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .price_by_night {
@@ -43,7 +41,7 @@
     right: 0;
     margin-top: 15px;
     margin-right: 15px;
-    padding: 15px;
+    padding: 10px;
 }
 
 .information {
@@ -56,6 +54,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 30px 10% 10px;
 }
 .max_guest , .number_rooms , .number_bathrooms{
     width: 100px;
@@ -68,4 +67,13 @@
     justify-content: center;
     align-items: center;
     margin: 0;
+}
+
+#owner {
+    font-weight: bold;
+}
+
+.user, .description{
+    justify-content: none;
+    padding: 10px 10% 20px;
 }
